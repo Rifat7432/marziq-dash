@@ -23,9 +23,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, onLogout }) => {
 
   return (
     <div
-      className={`${
-        isOpen ? "translate-x-0" : "-translate-x-full"
-      } w-64 h-full bg-white border-r border-gray-100 flex flex-col overflow-y-auto no-scrollbar fixed left-0 top-0 z-40 shadow-sm transform transition-transform duration-200 ease-in-out  md:translate-x-0`}
+      className={`${ 
+        isOpen ? "translate-x-0 w-64" : "-translate-x-full w-64"
+      } w-64 h-full bg-white border-r border-gray-100 flex flex-col overflow-y-auto no-scrollbar fixed left-0 top-0 z-40 shadow-sm transform transition-transform duration-200 ease-in-out`}
     >
       {/* Logo */}
       <div className="px-5 pt-5 pb-6 flex items-center justify-between gap-3">

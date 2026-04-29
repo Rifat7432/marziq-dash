@@ -8,7 +8,7 @@ const Layout = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex min-h-screen bg-white font-['Urbanist',sans-serif]">
+    <div className="flex min-h-screen bg-[#F8FAFC] font-['Urbanist',sans-serif] overflow-x-hidden">
       {/* Sidebar */}
       <Sidebar
         isOpen={sidebarOpen}
@@ -19,7 +19,9 @@ const Layout = () => {
       {/* Main */}
       <div className="flex-1 flex flex-col min-w-0">
         {/* Topbar */}
-        <header className="h-[72px] border-b border-gray-100 flex items-center justify-between px-8">
+        <header
+          className={`h-[72px] border-b border-gray-100 flex items-center justify-between px-8 transform transition-transform duration-200 ease-in-out  ${sidebarOpen ? "translate-x-64" : "translate-x-0"} fixed top-0 left-0 right-0 z-30 bg-white`}
+        >
           <button
             onClick={() => setSidebarOpen(true)}
             className="text-gray-500 hover:text-gray-800 transition-colors"
@@ -34,7 +36,9 @@ const Layout = () => {
         </header>
 
         {/* Page Content */}
-        <main className="flex-1 overflow-auto">
+        <main
+          className={`mt-20 transform transition-transform duration-200 ease-in-out ${sidebarOpen ? " translate-x-64" : "translate-x-0"} min-h-[calc(100vh-5rem)] container`}
+        >
           <Outlet />
         </main>
       </div>
