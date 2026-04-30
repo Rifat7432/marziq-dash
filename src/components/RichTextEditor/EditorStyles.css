@@ -15,6 +15,9 @@
   font-size: 16px;
   color: #374151;
   font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  padding: 30px 40px;
 }
 
 /* Placeholder Implementation */
@@ -57,7 +60,7 @@
   margin-top: 2rem;
   margin-bottom: 1.5rem; 
   color: #111827; 
-  letter-spacing: -0.025em;
+  letter-spacing: 0;
   line-height: 1.2;
 }
 
@@ -110,6 +113,9 @@
   border-collapse: collapse;
   margin: 2rem 0;
   border: 1px solid #d1d5db;
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
 .lumina-content-area td, .lumina-content-area th {
@@ -139,4 +145,28 @@
   color: #2563eb;
   text-decoration: underline;
   font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  .lumina-content-area {
+    font-size: 15px;
+    padding: 20px 16px;
+  }
+
+  .lumina-content-area h1 {
+    font-size: 28px;
+  }
+
+  .lumina-content-area h2 {
+    font-size: 23px;
+  }
+
+  .lumina-content-area h3 {
+    font-size: 19px;
+  }
+
+  .lumina-content-area ul,
+  .lumina-content-area ol {
+    margin-left: 1.25rem;
+  }
 }

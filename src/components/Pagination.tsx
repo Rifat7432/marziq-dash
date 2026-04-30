@@ -25,7 +25,7 @@ const Pagination: React.FC<PaginationProps> = ({
       pages.push(1); // Always show first page
 
       let startPage = Math.max(2, currentPage - Math.floor(maxVisiblePages / 2));
-      let endPage = Math.min(totalPages - 1, startPage + maxVisiblePages - 1);
+      const endPage = Math.min(totalPages - 1, startPage + maxVisiblePages - 1);
 
       if (endPage === totalPages - 1) {
         startPage = Math.max(2, endPage - maxVisiblePages + 1);
@@ -61,12 +61,12 @@ const Pagination: React.FC<PaginationProps> = ({
   const pageNumbers = getPageNumbers();
 
   return (
-    <div className="flex justify-end items-center gap-2 mt-6">
+    <div className="mt-6 flex max-w-full items-center justify-start gap-2 overflow-x-auto pb-1 sm:justify-end">
       {/* Previous Button */}
       <button
         onClick={handlePrevious}
         disabled={currentPage === 1}
-        className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-colors ${
+        className={`flex h-10 shrink-0 items-center justify-center rounded-xl px-3 text-sm font-semibold transition-colors sm:px-4 ${
           currentPage === 1
             ? "text-gray-300 cursor-not-allowed bg-[#EFF0F3]"
             : "text-gray-600 hover:bg-[#EFF0F3] bg-white border border-gray-200"
@@ -80,7 +80,7 @@ const Pagination: React.FC<PaginationProps> = ({
         p === "..." ? (
           <span
             key={i}
-            className="w-10 h-10 flex items-center justify-center text-gray-400 text-sm font-semibold"
+            className="flex h-10 w-8 shrink-0 items-center justify-center text-sm font-semibold text-gray-400 sm:w-10"
           >
             ...
           </span>
@@ -88,7 +88,7 @@ const Pagination: React.FC<PaginationProps> = ({
           <button
             key={i}
             onClick={() => handlePageChange(Number(p))}
-            className={`w-10 h-10 rounded-xl text-sm font-semibold transition-colors ${
+            className={`h-10 w-10 shrink-0 rounded-xl text-sm font-semibold transition-colors ${
               p === currentPage
                 ? "bg-white text-[#333333] border border-[#5E6758]"
                 : "bg-[#EFF0F3] text-gray-600 hover:bg-[#E0E8DF]"
@@ -103,7 +103,7 @@ const Pagination: React.FC<PaginationProps> = ({
       <button
         onClick={handleNext}
         disabled={currentPage === totalPages}
-        className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-colors ${
+        className={`flex h-10 shrink-0 items-center justify-center rounded-xl px-3 text-sm font-semibold transition-colors sm:px-4 ${
           currentPage === totalPages
             ? "text-gray-300 cursor-not-allowed bg-[#EFF0F3]"
             : "text-gray-600 hover:bg-[#EFF0F3] bg-white border border-gray-200"

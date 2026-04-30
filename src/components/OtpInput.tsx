@@ -25,17 +25,19 @@ const OtpInput: React.FC<OtpInputProps> = ({ onClose, onVerify }) => {
       <p className="text-sm text-gray-400 mb-6">
         Enter the verification code we sent to your email
       </p>
-      <div className="flex gap-2.5 mb-4">
+      <div className="mb-4 grid grid-cols-6 gap-2 sm:flex sm:gap-2.5">
         {otp.map((digit, i) => (
           <input
             key={i}
-            ref={(el: any) => (inputRefs.current[i] = el)}
+            ref={(el) => {
+              inputRefs.current[i] = el;
+            }}
             type="text"
             inputMode="numeric"
             maxLength={1}
             value={digit}
             onChange={(e) => handleChange(i, e.target.value)}
-            className="w-11 h-11 text-center text-sm font-semibold rounded-xl bg-[#E8EDE7] border border-transparent outline-none focus:ring-2 focus:ring-[#4A5C45]/30"
+            className="h-11 w-full rounded-xl border border-transparent bg-[#E8EDE7] text-center text-sm font-semibold outline-none focus:ring-2 focus:ring-[#4A5C45]/30 sm:w-11"
           />
         ))}
       </div>
@@ -43,7 +45,7 @@ const OtpInput: React.FC<OtpInputProps> = ({ onClose, onVerify }) => {
         Didn't get OTP?{" "}
         <button className="font-bold text-gray-800">Resend</button>
       </p>
-      <div className="flex gap-3">
+      <div className="flex flex-col gap-3 sm:flex-row">
         <button
           onClick={onClose}
           className="flex-1 py-3 rounded-full border border-red-300 text-red-400 text-sm font-semibold hover:bg-red-50 transition-colors"

@@ -5,11 +5,11 @@ interface ChangeNameModalProps {
 }
 
 const ChangeNameModal: React.FC<ChangeNameModalProps> = ({ onClose }) => (
-  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm">
-    <div className="bg-white w-full max-w-md rounded-2xl p-8 mx-4 shadow-xl">
+  <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-black/30 p-3 backdrop-blur-sm sm:p-4">
+    <div className="mx-auto w-full max-w-md rounded-2xl bg-white p-5 shadow-xl sm:p-8">
       <h2 className="text-xl font-black text-gray-900 mb-4">Change Name</h2>
       <hr className="border-gray-100 mb-6" />
-      <div className="flex gap-4 mb-6">
+      <div className="mb-6 flex flex-col gap-4 sm:flex-row">
         <div className="flex-1">
           <label className="text-sm font-semibold text-gray-700 block mb-2">
             First Name
@@ -31,7 +31,7 @@ const ChangeNameModal: React.FC<ChangeNameModalProps> = ({ onClose }) => (
           />
         </div>
       </div>
-      <div className="flex gap-3">
+      <div className="flex flex-col gap-3 sm:flex-row">
         <button
           onClick={onClose}
           className="flex-1 py-3 rounded-full border border-red-300 text-red-400 text-sm font-semibold hover:bg-red-50 transition-colors"

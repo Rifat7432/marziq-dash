@@ -11,13 +11,13 @@ const ForgotPasswordEmail = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-6 font-['Urbanist',sans-serif]">
-      <div className="w-full max-w-[840px] rounded-2xl overflow-hidden flex shadow-2xl">
+    <div className="flex min-h-screen items-center justify-center bg-[#F8FAFC] p-3 font-['Urbanist',sans-serif] sm:p-6">
+      <div className="flex w-full max-w-[840px] flex-col overflow-hidden rounded-2xl bg-white shadow-xl sm:shadow-2xl md:flex-row">
         {/* Left Panel */}
-        <div className="w-[40%] bg-[#EDE9E0] flex items-center justify-center p-10">
-          <div className="w-44 h-44 rounded-full border-2 border-gray-800 flex items-center justify-center">
+        <div className="flex items-center justify-center bg-[#EDE9E0] p-5 sm:p-6 md:w-[40%] md:p-10">
+          <div className="flex h-24 w-24 items-center justify-center rounded-full border-2 border-gray-800 sm:h-36 sm:w-36 md:h-44 md:w-44">
             <span
-              className="text-3xl font-bold text-gray-800"
+              className="text-xl font-bold text-gray-800 sm:text-3xl"
               style={{ fontFamily: "'Dancing Script', cursive" }}
             >
               Xchange
@@ -26,9 +26,9 @@ const ForgotPasswordEmail = () => {
         </div>
 
         {/* Right Panel */}
-        <div className="flex-1 bg-white flex items-center justify-center px-10 py-14">
+        <div className="flex flex-1 items-center justify-center bg-white px-4 py-7 sm:px-8 md:px-10 md:py-14">
           <div className="w-full max-w-sm">
-            <h1 className="text-[26px] font-black text-gray-900 mb-1">
+            <h1 className="mb-1 text-2xl font-black text-gray-900 sm:text-[26px]">
               Forgot Your Password?
             </h1>
             <p className="text-gray-400 text-sm mb-8">

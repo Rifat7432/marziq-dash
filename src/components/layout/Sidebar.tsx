@@ -23,9 +23,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, onLogout }) => {
 
   return (
     <div
-      className={`${ 
-        isOpen ? "translate-x-0 w-64" : "-translate-x-full w-64"
-      } w-64 h-full bg-white border-r border-gray-100 flex flex-col overflow-y-auto no-scrollbar fixed left-0 top-0 z-40 shadow-sm transform transition-transform duration-200 ease-in-out`}
+      className={`fixed inset-y-0 left-0 z-40 flex h-full w-[min(16rem,85vw)] flex-col overflow-y-auto border-r border-gray-100 bg-white shadow-sm transition-transform duration-200 ease-in-out lg:w-64 lg:translate-x-0 ${
+        isOpen ? "translate-x-0" : "-translate-x-full"
+      }`}
     >
       {/* Logo */}
       <div className="px-5 pt-5 pb-6 flex items-center justify-between gap-3">
@@ -36,9 +36,10 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, onLogout }) => {
         </div>
         <button
           onClick={onClose}
-          className="text-gray-500 hover:text-gray-800 transition-colors"
+          className="flex h-9 w-9 items-center justify-center rounded-full text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-800 lg:hidden"
+          aria-label="Close sidebar"
         >
-          {isOpen ? <X size={22} /> : ""}
+          <X size={22} />
         </button>
       </div>
 
@@ -48,6 +49,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, onLogout }) => {
           <NavLink
             key={to}
             to={to}
+            onClick={onClose}
             className={({ isActive }) =>
               `flex items-center gap-3 px-4 py-3 rounded-xl text-[15px] font-semibold transition-colors ${
                 isActive

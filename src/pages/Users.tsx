@@ -18,12 +18,12 @@ const Users = () => {
   const [currentPage, setCurrentPage] = useState(2);
 
   return (
-    <div className="p-8 bg-[#F8FAFC] min-h-full font-['Urbanist',sans-serif]">
-      <h2 className="text-2xl font-black text-gray-900 mb-6">Users</h2>
+    <div className="min-h-full min-w-0 bg-[#F8FAFC] font-['Urbanist',sans-serif]">
+      <h2 className="mb-6 text-xl font-black text-gray-900 sm:text-2xl">Users</h2>
 
       {/* Controls */}
-      <div className="flex items-center justify-between mb-5">
-        <div className="flex items-center gap-2 text-sm text-gray-500">
+      <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-wrap items-center gap-2 text-sm text-gray-500">
           <span>Showing per page</span>
           <select
             value={perPage}
@@ -35,7 +35,7 @@ const Users = () => {
             ))}
           </select>
         </div>
-        <div className="relative">
+        <div className="relative w-full sm:w-auto">
           <Search
             size={16}
             className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
@@ -45,14 +45,15 @@ const Users = () => {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search here..."
-            className="pl-9 pr-4 py-2 bg-white border border-gray-200 rounded-xl text-sm text-gray-600 placeholder-gray-400 outline-none focus:ring-2 focus:ring-[#4A5C45]/20 w-64"
+            className="w-full rounded-xl border border-gray-200 bg-white py-2 pl-9 pr-4 text-sm text-gray-600 outline-none placeholder-gray-400 focus:ring-2 focus:ring-[#4A5C45]/20 sm:w-64"
           />
         </div>
       </div>
 
       {/* Table */}
-      <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
-        <table className="w-full">
+      <div className="overflow-hidden rounded-xl border border-gray-100 bg-white sm:rounded-2xl">
+        <div className="overflow-x-auto">
+        <table className="w-full min-w-[760px] sm:min-w-[880px]">
           <thead>
             <tr className="border-b border-gray-100">
               {["SL", "Photo", "User", "Email Address", "Phone Number", "Join Date", "Status", "Action"].map((h) => (
@@ -60,7 +61,7 @@ const Users = () => {
                   key={h}
                   className="px-6 py-4 text-left text-sm font-semibold text-gray-500"
                 >
-                  {h}
+                  <span className="whitespace-nowrap">{h}</span>
                 </th>
               ))}
             </tr>
@@ -94,6 +95,7 @@ const Users = () => {
             ))}
           </tbody>
         </table>
+        </div>
       </div>
 
       {/* Pagination */}

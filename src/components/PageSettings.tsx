@@ -22,12 +22,12 @@ const PageSettings: React.FC = () => {
   return (
     <div>
       {/* Tabs */}
-      <div className="flex gap-6 border-b border-gray-200 mb-6">
+      <div className="mb-6 flex gap-5 overflow-x-auto border-b border-gray-200">
         {pageTabs.map((t) => (
           <button
             key={t.key}
             onClick={() => setActiveTab(t.key)}
-            className={`pb-3 text-sm font-semibold transition-colors relative ${
+            className={`relative shrink-0 pb-3 text-sm font-semibold transition-colors ${
               activeTab === t.key
                 ? "text-gray-900 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-gray-900"
                 : "text-gray-400 hover:text-gray-600"
@@ -48,10 +48,10 @@ const PageSettings: React.FC = () => {
         />
       </div>
 
-      <div className="flex justify-end mt-5">
+      <div className="mt-5 flex justify-stretch sm:justify-end">
         <button
           onClick={handleSave}
-          className="px-8 py-3 bg-[#4A5C45] text-white rounded-full font-semibold text-sm hover:bg-[#3d4e39] transition-colors"
+          className="w-full rounded-full bg-[#4A5C45] px-8 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#3d4e39] sm:w-auto"
         >
           Save Changes
         </button>

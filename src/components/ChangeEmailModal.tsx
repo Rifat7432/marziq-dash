@@ -10,8 +10,8 @@ const ChangeEmailModal: React.FC<ChangeEmailModalProps> = ({ onClose }) => {
   const [step, setStep] = useState<"current" | "new" | "otp">("current");
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm">
-      <div className="bg-white w-full max-w-md rounded-2xl p-8 mx-4 shadow-xl">
+    <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-black/30 p-3 backdrop-blur-sm sm:p-4">
+      <div className="mx-auto w-full max-w-md rounded-2xl bg-white p-5 shadow-xl sm:p-8">
         <h2 className="text-xl font-black text-gray-900 mb-4">
           Change Email Address
         </h2>
@@ -40,7 +40,7 @@ const ChangeEmailModal: React.FC<ChangeEmailModalProps> = ({ onClose }) => {
               readOnly
               className="w-full bg-[#F5F5F0] rounded-xl px-4 py-3 text-sm text-gray-600 outline-none mb-6"
             />
-            <div className="flex gap-3">
+            <div className="flex flex-col gap-3 sm:flex-row">
               <button
                 onClick={onClose}
                 className="flex-1 py-3 rounded-full border border-red-300 text-red-400 text-sm font-semibold hover:bg-red-50 transition-colors"
@@ -85,7 +85,7 @@ const ChangeEmailModal: React.FC<ChangeEmailModalProps> = ({ onClose }) => {
               placeholder="Enter new email address"
               className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm text-gray-700 placeholder-gray-400 outline-none focus:ring-2 focus:ring-[#4A5C45]/20 mb-6"
             />
-            <div className="flex gap-3">
+            <div className="flex flex-col gap-3 sm:flex-row">
               <button
                 onClick={onClose}
                 className="flex-1 py-3 rounded-full border border-red-300 text-red-400 text-sm font-semibold hover:bg-red-50 transition-colors"

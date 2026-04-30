@@ -48,7 +48,7 @@ const ToolbarButton = ({
     title={title}
     onMouseDown={(e) => e.preventDefault()} // Prevents loss of focus in editor
     className={cn(
-      "w-8 h-8 flex items-center justify-center rounded-[6px] transition-colors bg-transparent border-none text-[#1e293b]",
+      "flex h-8 w-8 shrink-0 items-center justify-center rounded-[6px] border-none bg-transparent text-[#1e293b] transition-colors",
       "hover:bg-[#e2e8f0]",
       active && "bg-[#dbeafe] text-[#2563eb]",
       disabled && "opacity-30 cursor-not-allowed"
@@ -59,7 +59,7 @@ const ToolbarButton = ({
 );
 
 const Group = ({ children }: GroupProps) => (
-  <div className="flex items-center gap-[1px] px-2 border-r border-[#d1d5db] h-8 last:border-r-0">
+  <div className="flex h-8 shrink-0 items-center gap-[1px] border-r border-[#d1d5db] px-1.5 last:border-r-0 sm:px-2">
     {children}
   </div>
 );
@@ -69,7 +69,7 @@ export function Toolbar({ onAction, onUploadImage, onUploadFile, onPreview }: To
   const [showBgColorPicker, setShowBgColorPicker] = useState(false);
 
   return (
-    <div className="bg-[#f3f4f6] border-b border-[#d1d5db] p-1.5 flex flex-wrap gap-y-1 items-center shadow-sm">
+    <div className="flex max-w-full items-center gap-y-1 overflow-x-auto border-b border-[#d1d5db] bg-[#f3f4f6] p-1.5 shadow-sm sm:flex-wrap">
       {/* 1. Source */}
       <Group>
         <ToolbarButton onClick={() => alert('Source view is disabled.')} title="Source Code">
@@ -178,7 +178,7 @@ export function Toolbar({ onAction, onUploadImage, onUploadFile, onPreview }: To
           </ToolbarButton>
           {showColorPicker && (
             <div
-              className="absolute top-full left-0 mt-2 p-2 bg-white border border-[#d1d5db] shadow-xl rounded-lg grid grid-cols-5 gap-1 z-[100]"
+              className="absolute left-0 top-full z-[100] mt-2 grid grid-cols-5 gap-1 rounded-lg border border-[#d1d5db] bg-white p-2 shadow-xl"
             >
               {COLORS.map(color => (
                 <button
@@ -201,7 +201,7 @@ export function Toolbar({ onAction, onUploadImage, onUploadFile, onPreview }: To
           </ToolbarButton>
           {showBgColorPicker && (
             <div
-              className="absolute top-full left-0 mt-2 p-2 bg-white border border-[#d1d5db] shadow-xl rounded-lg grid grid-cols-5 gap-1 z-[100]"
+              className="absolute left-0 top-full z-[100] mt-2 grid grid-cols-5 gap-1 rounded-lg border border-[#d1d5db] bg-white p-2 shadow-xl"
             >
               {COLORS.map(color => (
                 <button

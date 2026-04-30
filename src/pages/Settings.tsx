@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 import AccountInfo from "../components/AccountInfo";
 import ChangePassword from "../components/ChangePassword";
 import PageSettings from "../components/PageSettings";
@@ -17,17 +17,17 @@ const Settings = () => {
   const [activeTab, setActiveTab] = useState<SettingsTab>("account");
 
   return (
-    <div className="p-8 bg-[#F8FAFC] min-h-full font-['Urbanist',sans-serif]">
-      <h2 className="text-2xl font-black text-gray-900 mb-6">Settings</h2>
+    <div className="min-h-full min-w-0 bg-[#F8FAFC] font-['Urbanist',sans-serif]">
+      <h2 className="mb-6 text-xl font-black text-gray-900 sm:text-2xl">Settings</h2>
 
-      <div className="flex gap-6 items-start">
+      <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:gap-6">
         {/* Sidebar */}
-        <div className="w-60 flex-shrink-0 bg-white rounded-2xl border border-gray-100 p-3">
+        <div className="flex w-full flex-shrink-0 gap-2 overflow-x-auto rounded-xl border border-gray-100 bg-white p-2 sm:rounded-2xl sm:p-3 lg:w-60 lg:flex-col lg:overflow-visible">
           {settingsSidebar.map(({ key, label }) => (
             <button
               key={key}
               onClick={() => setActiveTab(key)}
-              className={`w-full text-left px-4 py-3 rounded-xl text-sm font-semibold transition-colors ${
+              className={`shrink-0 rounded-xl px-3 py-2.5 text-left text-sm font-semibold transition-colors sm:px-4 sm:py-3 lg:w-full ${
                 activeTab === key
                   ? "bg-[#4A5C45] text-white"
                   : "text-gray-500 hover:bg-gray-50 hover:text-gray-800"
@@ -39,7 +39,7 @@ const Settings = () => {
         </div>
 
         {/* Content */}
-        <div className="flex-1 bg-white rounded-2xl border border-gray-100 p-7">
+        <div className="min-w-0 flex-1 rounded-xl border border-gray-100 bg-white p-3 sm:rounded-2xl sm:p-6 lg:p-7">
           {activeTab === "account" && <AccountInfo />}
           {activeTab === "password" && <ChangePassword />}
           {activeTab === "pages" && <PageSettings />}

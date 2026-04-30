@@ -11,7 +11,7 @@ const ChangePassword: React.FC = () => {
     setShow((p) => ({ ...p, [k]: !p[k] }));
 
   return (
-    <div className="max-w-lg">
+    <div className="w-full max-w-lg">
       <div className="space-y-5">
         {[
           {

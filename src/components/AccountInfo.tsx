@@ -49,10 +49,10 @@ const AccountInfo: React.FC = () => {
             className="w-24 h-24 rounded-full object-cover"
           />
         </div>
-        <div className="flex gap-3">
+        <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
           <button
             onClick={() => fileInputRef.current?.click()}
-            className="flex items-center gap-2 px-5 py-2.5 bg-[#4A5C45] text-white rounded-full text-sm font-semibold hover:bg-[#3d4e39] transition-colors"
+            className="flex items-center justify-center gap-2 rounded-full bg-[#4A5C45] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#3d4e39]"
           >
             <ImagePlus size={16} />
             Change Profile Photo
@@ -63,7 +63,7 @@ const AccountInfo: React.FC = () => {
         </div>
 
         {/* Fields */}
-        <div className="grid grid-cols-2 gap-4 w-full mt-2">
+        <div className="mt-2 grid w-full grid-cols-1 gap-4 md:grid-cols-2">
           <div>
             <p className="text-sm text-gray-400 mb-2">Full Name</p>
             <div className="flex items-center justify-between bg-[#F5F5F0] rounded-xl px-4 py-3">
@@ -78,8 +78,8 @@ const AccountInfo: React.FC = () => {
           </div>
           <div>
             <p className="text-sm text-gray-400 mb-2">Email Address</p>
-            <div className="flex items-center justify-between bg-[#F5F5F0] rounded-xl px-4 py-3">
-              <span className="text-sm text-gray-700">admin@xchange.com</span>
+            <div className="flex min-w-0 items-center justify-between gap-3 rounded-xl bg-[#F5F5F0] px-4 py-3">
+              <span className="min-w-0 truncate text-sm text-gray-700">admin@xchange.com</span>
               <button
                 onClick={() => setShowEmailModal(true)}
                 className="text-gray-400 hover:text-gray-600"

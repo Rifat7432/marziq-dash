@@ -41,17 +41,19 @@ const statCards = [
 
 const Dashboard = () => {
   return (
-    <div className="p-8 bg-[#F8FAFC] min-h-full font-['Urbanist',sans-serif]">
+    <div className="min-h-full min-w-0 bg-[#F8FAFC] font-['Urbanist',sans-serif]">
       {/* User Overview */}
-      <h2 className="text-2xl font-black text-gray-900 mb-5">User Overview</h2>
-      <div className="grid grid-cols-4 gap-4 mb-8">
+      <h2 className="mb-5 text-xl font-black text-gray-900 sm:text-2xl">
+        User Overview
+      </h2>
+      <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {statCards.map((card, i) => (
           <div
             key={i}
-            className="bg-white rounded-2xl p-5 border border-gray-100 flex flex-col gap-4"
+            className="flex flex-col gap-4 rounded-xl border border-gray-100 bg-white p-4 sm:rounded-2xl sm:p-5"
           >
             <div className="flex items-start justify-between">
-              <div>
+              <div className="min-w-0 pr-3">
                 <p className="text-2xl font-black text-gray-900">{card.value}</p>
                 <p className="text-sm font-semibold text-gray-700 mt-0.5">
                   {card.label}
@@ -69,14 +71,16 @@ const Dashboard = () => {
       </div>
 
       {/* Growth Overview */}
-      <div className="bg-white rounded-2xl border border-gray-100 p-6 mb-8">
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="text-xl font-black text-gray-900">Growth Overview</h3>
+      <div className="mb-8 rounded-xl border border-gray-100 bg-white p-4 sm:rounded-2xl sm:p-6">
+        <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <h3 className="text-lg font-black text-gray-900 sm:text-xl">
+            Growth Overview
+          </h3>
           <span className="text-sm text-gray-400 bg-gray-100 px-3 py-1.5 rounded-lg font-medium">
             Jan 20226
           </span>
         </div>
-        <ResponsiveContainer width="100%" height={200}>
+        <ResponsiveContainer width="100%" height={220}>
           <LineChart data={growthData}>
             <XAxis dataKey="month" hide />
             <YAxis
@@ -106,11 +110,12 @@ const Dashboard = () => {
       </div>
 
       {/* Users who joined today */}
-      <h3 className="text-xl font-black text-gray-900 mb-4">
+      <h3 className="mb-4 text-lg font-black text-gray-900 sm:text-xl">
         Users who joined today
       </h3>
-      <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
-        <table className="w-full">
+      <div className="overflow-hidden rounded-xl border border-gray-100 bg-white sm:rounded-2xl">
+        <div className="overflow-x-auto">
+        <table className="w-full min-w-[680px] sm:min-w-[760px]">
           <thead>
             <tr className="border-b border-gray-100">
               {["SL", "Photo", "User", "Email Address", "Phone Number", "Join Date", "Status"].map((h) => (
@@ -118,7 +123,7 @@ const Dashboard = () => {
                   key={h}
                   className="px-6 py-4 text-left text-sm font-semibold text-gray-500"
                 >
-                  {h}
+                  <span className="whitespace-nowrap">{h}</span>
                 </th>
               ))}
             </tr>
@@ -147,6 +152,7 @@ const Dashboard = () => {
             ))}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   );

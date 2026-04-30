@@ -165,13 +165,13 @@ export function RichTextEditor({
         onPreview={onPreview}
       />
 
-      <div className="relative flex-1 overflow-auto bg-white max-h-[600px]">
+      <div className="relative max-h-[600px] flex-1 overflow-auto bg-white">
         <div
           ref={contentRef}
           contentEditable
           onInput={handleInput}
           onBlur={handleBlur}
-          className="lumina-content-area outline-none p-[30px_40px]"
+          className="lumina-content-area min-h-[280px] outline-none"
           data-placeholder={placeholder}
           onKeyDown={(e) => {
             if (e.key === 'Tab') {
@@ -182,7 +182,7 @@ export function RichTextEditor({
         />
       </div>
 
-      <div className="px-3 py-1.5 bg-[#f9fafb] border-t border-[#d1d5db] flex items-center justify-between text-[11px] text-[#6b7280] font-medium">
+      <div className="flex items-center justify-between border-t border-[#d1d5db] bg-[#f9fafb] px-3 py-1.5 text-[11px] font-medium text-[#6b7280]">
         <div className="flex gap-4">
           <span>Words: {stats.words}</span>
           <span>Chars: {stats.characters}</span>
